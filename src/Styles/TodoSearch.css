@@ -1,0 +1,34 @@
+
+
+.input-search {
+    margin: 0 24px;
+    height: 64px;
+    width: calc(100% - 62px);
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+    background-color: #F3FDE8;
+    border-radius: 8px;
+    border: solid 2px #FFE5E5;
+/*     box-shadow:0 5px 50px rgba(32, 41, 32, 0.25)
+ */
+}
+
+.input-search:focus{
+    outline-color: #FFBFBF;
+}
+
+.input-search::placeholder {
+    color: #768371;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    
+}
+/* 
+color palette 
+A8DF8E
+F3FDE8             
+FFE5E5
+FFBFBF */

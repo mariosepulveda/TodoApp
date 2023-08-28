@@ -1,0 +1,12 @@
+
+.container-ul {
+    width: 99.5%;
+}
+
+ul {
+    font-size: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 24px;
+}
+
