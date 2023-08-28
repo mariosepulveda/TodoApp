@@ -1,0 +1,18 @@
+:root {
+  --main-background-color: #F3FDE8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #1E1E1F;
+  font-family: 'Montserrat',Arial,Helvetica,sans-serif;
+  background-color: var(--main-background-color);
+
+}
+
+#root {
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+}
