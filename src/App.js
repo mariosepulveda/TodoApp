@@ -5,7 +5,9 @@ import TodoList from './Components/TodoList';
 import TodoItem from './Components/TodoItem';
 import { TodoCreateButton } from './Components/TodoCreateButton';
 
-const arrayTareas = [
+/**
+ * 
+ * const arrayTareas = [
   {description:'Taller de Inglés básico sobre elementos de trabajo.', complete:false},
   {description:'Curso para conseguir trabajo en EEUU.', complete:false},
   {description:'Curso de inglés intermedio para el trabajo.', complete:false},
@@ -13,10 +15,21 @@ const arrayTareas = [
   {description:'Estudiar Inglés A2', complete:false},
   {description:'Terminar Hoja de vida', complete:false},
 ];
+ */
 
 function App() {
-  const [todos,setTodos] = React.useState(arrayTareas);
+  const localStorageTodos=localStorage.getItem('TODOS_V1')
+  let parsedTodos;
+  if(!localStorageTodos){
+    localStorage.setItem('TODOS_V1',JSON.stringify([]));
+    parsedTodos=[];
+  }else{
+    parsedTodos=JSON.parse(localStorageTodos);
+  }
+
+  const [todos,setTodos] = React.useState(parsedTodos);
   const [searchValue,setSearchValue] = React.useState('');
+  
   
   const totalTodos = todos.length;
   const completeTodos = todos.filter(todo=>!!todo.complete).length;
@@ -35,13 +48,10 @@ function App() {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.key === key);
     newTodos.splice(todoIndex,1);
-    setTodos(newTodos); 
+    setTodos(newTodos);
+    //saveTodos(newTodos); 
   }
  
-
-  console.log('numero de todos completados y totales',completeTodos,totalTodos);
-
-  console.log('los usuarios buscaron: ', searchValue);
   return (
     <>
       <TodoCounter total={totalTodos} completed={completeTodos}/>

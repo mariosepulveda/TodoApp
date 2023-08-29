@@ -4,8 +4,6 @@ import '../Styles/TodoCreateButton.css'
 function  TodoCreateButton () {
     return (
         <button onClick={(e)=>{
-            console.log('le diste click +');
-            console.log(e.target);
         }} className="button-add">+</button>
     );
 }
