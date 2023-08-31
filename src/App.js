@@ -16,7 +16,7 @@ import { TodoCreateButton } from './Components/TodoCreateButton';
 ]; */
 //
 //localStorage.setItem('TODOS_ARRAY',arrayTareas);
-
+// cambio ultimo 
 localStorage.removeItem('TODOS_ARRAY');
 
 function App() {
