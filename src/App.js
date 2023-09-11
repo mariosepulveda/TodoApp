@@ -4,6 +4,7 @@ import TodoSearch from './Components/TodoSearch';
 import TodoList from './Components/TodoList';
 import TodoItem from './Components/TodoItem';
 import { TodoCreateButton } from './Components/TodoCreateButton';
+import { useLocalStorage } from './Hooks/hookLocalStorage';
 
 /* const arrayTareas = [
   {description:'Pedir las vacaciones en la empresa.', complete:false},
@@ -20,17 +21,8 @@ import { TodoCreateButton } from './Components/TodoCreateButton';
 localStorage.removeItem('TODOS_ARRAY');
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
 
-  let parsedTodos = [];
-
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    //parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
-  }  
-  const [todos,setTodos] = React.useState(parsedTodos);
+  const [todos,savesTodos] = useLocalStorage('TODOS_V1',[]);
 
   const [searchValue,setSearchValue] = React.useState('');
   
@@ -41,10 +33,6 @@ function App() {
   });
 
 
-  const savesTodos = (newTodos) => {
-    setTodos(newTodos);
-    localStorage.setItem('TODOS_V1',JSON.stringify(newTodos));
-  }
 
   const completeTodo = (description) => { 
     const newTodos = [...todos]; 
