@@ -14,11 +14,17 @@ import { useLocalStorage } from './Hooks/hookLocalStorage';
 //
 //localStorage.setItem('TODOS_ARRAY',arrayTareas);
 // cambio ultimo 
-localStorage.removeItem('TODOS_ARRAY');
+//localStorage.removeItem('TODOS_ARRAY');
 
 function App() {
 
-  const [todos,savesTodos] = useLocalStorage('TODOS_V1',[]);
+  const {
+    item: todos,
+    saveItem: savesTodos,
+    load,
+    error,
+
+  } = useLocalStorage('TODOS_V1',[]);
 
   const [searchValue,setSearchValue] = React.useState('');
   
@@ -50,7 +56,10 @@ function App() {
   }
  
   return (
-    <AppUi totalTodos={totalTodos}
+    <AppUi 
+    load={load}
+    error={error}
+    totalTodos={totalTodos}
     completeTodos={completeTodos}
     searchValue={searchValue}
     setSearchValue={setSearchValue}
