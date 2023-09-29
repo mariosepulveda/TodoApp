@@ -1,9 +1,19 @@
 /* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons' */
-import '../Styles/TodoCreateButton.css'
+import React from 'react';
+import { TodoContext } from '../Hooks';
+import '../Styles/TodoCreateButton.css'; 
+
+
 function  TodoCreateButton () {
+    const {
+        setOpenModal,
+        openModal,
+    } = React.useContext(TodoContext);
     return (
-        <button onClick={(e)=>{
+        <button onClick={()=>{
+            setOpenModal(!openModal);
+            console.log("se dio click");
         }} className="button-add">+</button>
     );
 }

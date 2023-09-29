@@ -15,6 +15,8 @@ function TodoProvider({children}){
 
       const [searchValue,setSearchValue] = React.useState('');
 
+      const [openModal,setOpenModal] = React.useState(false); // variables del estado para agregadas al contexto para utilizarlas en los portals
+
       const totalTodos = todos.length;
       const completeTodos = todos.filter(todo=>!!todo.complete).length;
       const searchedTodos = todos.filter((todo)=>{
@@ -41,6 +43,7 @@ function TodoProvider({children}){
     savesTodos(newTodos);
     };
 
+
     return(
         <TodoContext.Provider value={{
             load,
@@ -51,7 +54,9 @@ function TodoProvider({children}){
             setSearchValue,
             searchedTodos,
             completeTodo,
-            deleteTodo
+            deleteTodo,
+            openModal,
+            setOpenModal,
         }}>
             {children}
         </TodoContext.Provider>
